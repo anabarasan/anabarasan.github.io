@@ -1,3 +1,8 @@
++++
+title = "About Me"
+date = 2026-04-26
+draft = false
++++
 # About Me
 
 I started out in Oil & Gas before drifting into software a couple of years later. My background is in Instrumentation and Control.
