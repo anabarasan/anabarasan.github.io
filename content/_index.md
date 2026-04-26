@@ -13,7 +13,7 @@ Most of my work revolves around:
 * Building and running applications on **Kubernetes**
 * Designing and operating **stateful systems**, especially with MariaDB and replication setups
 * Writing backend services and APIs
-* Understanding how systems behave in production—failures, restarts, scaling, and recovery
+* Understanding how systems behave in production-failures, restarts, scaling, and recovery
 
 I tend to focus more on how systems recover and behave under stress, not just how they work in ideal conditions.
 
@@ -29,7 +29,7 @@ I’m also experimenting with running AI models locally and exploring how they c
 
 ## Side Projects & Interests
 
-I like building small, practical tools—usually things that solve a specific problem or simplify something I’ve had to deal with.
+I like building small, practical tools-usually things that solve a specific problem or simplify something I’ve had to deal with.
 
 I also run tabletop RPGs occasionally and have been exploring simple tools in that space.
 

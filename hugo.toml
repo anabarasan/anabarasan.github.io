@@ -7,3 +7,18 @@ theme = 'PaperMod'
 [params]
   env = 'production'
   author = 'Anbarasan'
+
+[[menu.main]]
+  name = '~/projects'
+  url = '/projects/'
+  weight = 1
+
+[[menu.main]]
+  name = '~/blog'
+  url = '/posts/'
+  weight = 2
+
+[[menu.main]]
+  name = '~/contact'
+  url = '/contact'
+  weight = 3
