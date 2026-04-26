@@ -27,14 +27,6 @@ I’m also experimenting with running AI models locally and exploring how they c
 
 ---
 
-## Side Projects & Interests
-
-I like building small, practical tools-usually things that solve a specific problem or simplify something I’ve had to deal with.
-
-I also run tabletop RPGs occasionally and have been exploring simple tools in that space.
-
----
-
 ## About This Site
 
 This is where I document what I’m working on, things I’ve tried (including what didn’t work), and notes that might be useful to others working on similar problems.
@@ -45,10 +37,3 @@ This is where I document what I’m working on, things I’ve tried (including w
 
 * GitHub: *https://github.com/anabarasan*
 * Notes / Blog: *http://nasarabna.wordpress.com*
-
----
-
-## Contact
-
-If you're working on similar problems around Kubernetes or databases, I’m always open to exchanging ideas.
-
