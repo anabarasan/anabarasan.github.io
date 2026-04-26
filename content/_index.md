@@ -44,7 +44,7 @@ This is where I document what I’m working on, things I’ve tried (including w
 ## Links
 
 * GitHub: *https://github.com/anabarasan*
-* Notes / Blog: *(add link if/when available)*
+* Notes / Blog: *http://nasarabna.wordpress.com*
 
 ---
 
