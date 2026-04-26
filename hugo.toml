@@ -20,5 +20,5 @@ theme = 'PaperMod'
 
 [[menu.main]]
   name = '~/contact'
-  url = '/contact'
+  url = '/contact/'
   weight = 3
