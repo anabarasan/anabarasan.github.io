@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Anbarasan Gangadaran :: Mine Sweeper</title>
+		<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="/minesweeper/minesweeper.css" />
+        <script src="/static/js/jquery.min.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/minesweeper/minesweeper.js"></script>
+        <style>
+        	@font-face {
+                font-family: 'Ubuntu';
+                src: url('/fonts/Ubuntu-R.ttf') format('truetype');
+            }
+            .navbar {
+                margin-bottom: 20px
+            }
+	        body { font-family: 'Ubuntu', sans-serif; padding-top: 70px; }
+        </style>
+	</head>
+	<body>
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+			            <span class="sr-only">Toggle navigation</span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+		          	</button>
+			    	<a class="navbar-brand" href="/">Anbarasan Gangadaran</a>
+			    </div>
+			    <div id="navbar" class="navbar-collapse collapse">
+			    	<ul class="nav navbar-nav navbar-right">
+			    		<li><a href="/blog">Blog</a></li>
+			    		<li class="active"><a href="/projects">Projects</a></li>
+			    		<li><a href="/resume">Resume</a></li>
+			    		<li><a href="/contact">Contact</a></li>
+			    	</ul>
+			    </div>
+			</div>
+		</nav>
+		<div id="minesweeper" class="container container-fluid">
+
+			<header>
+				<h1>Minesweeper</h1>
+			</header>
+
+			<div id="menu">
+				<label for="level">Level</label>
+				<select id="level">
+					<option value="Beginner">Beginner</option>
+					<option value="Easy" selected>Easy</option>
+					<option value="Intermediate">Intermediate</option>
+					<option value="Advanced">Advanced</option>
+				</select>
+				<input id="newGame" type="button" value="New Game" onClick="newGame();"/>
+			</div>
+
+            <div id="info_display">
+                <div id="timer">
+                    <div class="digits">
+                        <div class="zero">
+                            <span class="d1"></span>
+                            <span class="d2"></span>
+                            <span class="d3"></span>
+                            <span class="d4"></span>
+                            <span class="d5"></span>
+                            <span class="d6"></span>
+                            <span class="d7"></span>
+                        </div>
+                        <div class="zero">
+                            <span class="d1"></span>
+                            <span class="d2"></span>
+                            <span class="d3"></span>
+                            <span class="d4"></span>
+                            <span class="d5"></span>
+                            <span class="d6"></span>
+                            <span class="d7"></span>
+                        </div>
+                        <div class="zero">
+                            <span class="d1"></span>
+                            <span class="d2"></span>
+                            <span class="d3"></span>
+                            <span class="d4"></span>
+                            <span class="d5"></span>
+                            <span class="d6"></span>
+                            <span class="d7"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="smiley">
+                    <div class="smileyface">
+                        <p class="eyes lefteye"></p>
+                        <p class="eyes righteye"></p>
+                        <div class="smile">
+                            <div class="corner"></div>
+                            <div class="corner right"></div>
+                        </div>
+                        <div class="frown">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="flag_count">
+                    <div class="digits">
+                        <div class="zero">
+                            <span class="d1"></span>
+                            <span class="d2"></span>
+                            <span class="d3"></span>
+                            <span class="d4"></span>
+                            <span class="d5"></span>
+                            <span class="d6"></span>
+                            <span class="d7"></span>
+                        </div>
+                        <div class="zero">
+                            <span class="d1"></span>
+                            <span class="d2"></span>
+                            <span class="d3"></span>
+                            <span class="d4"></span>
+                            <span class="d5"></span>
+                            <span class="d6"></span>
+                            <span class="d7"></span>
+                        </div>
+                        <div class="zero">
+                            <span class="d1"></span>
+                            <span class="d2"></span>
+                            <span class="d3"></span>
+                            <span class="d4"></span>
+                            <span class="d5"></span>
+                            <span class="d6"></span>
+                            <span class="d7"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+			<div id="board"></div>
+		</div>
+	</body>
+</html>

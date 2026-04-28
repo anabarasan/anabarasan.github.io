@@ -1,0 +1,363 @@
+td {
+    width: 30px;
+    height: 30px;
+    border: 1px dotted;
+}
+#minesweeper {
+    text-align: center;
+}
+#board,
+#timer,
+#smiley,
+#flag_count {
+    display: inline-block;
+}
+#timer,
+#flag_count {
+    background-color: black;
+    margin: 0 10px;
+}
+#menu {
+    margin-bottom: 10px;
+}
+#result {
+    margin-bottom: 10px;
+    height: 20px;
+    display: none;
+}
+#info_display {
+    clear: both;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.smileyface {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    display: block;
+    background: #ffe632;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fffe8d), to(#f6d23e));
+    background: -moz-linear-gradient(top, #fffe8d, #f6d23e);
+    box-shadow: inset 0px -7px 7px rgba(0, 0, 0, .3), 0px 1px 10px rgba(0, 0, 0, .6);
+    -webkit-box-shadow: inset 0px -7px 7px rgba(0, 0, 0, .3), 0px 2px 20px rgba(0, 0, 0, .6);
+    -moz-box-shadow: inset 0px -7px 7px rgba(0, 0, 0, .3), 0px 1px 10px rgba(0, 0, 0, .6);
+}
+.eyes {
+    width: 7px;
+    height: 10px;
+    background: #222;
+    border-radius: 100px/160px;
+    -webkit-border-radius: 100px 160px;
+    -moz-border-radius: 100px/160px;
+    position: absolute;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+.eyes.lefteye {
+    left: 10px;
+}
+.eyes.righteye {
+    right: 10px;
+}
+.smile {
+    width: 20px;
+    height: 7px;
+    border: 2px solid #222;
+    border-top: 0;
+    background: rgba(0, 0, 0, 0);
+    -moz-border-radius: 0 0 120px 120px / 0 0 90px 90px;
+    -webkit-border-radius: 0 0 120px 120px 0 0 90px 90px;
+    border-radius: 0 0 120px 120px / 0 0 90px 90px;
+    position: absolute;
+    bottom: 10px;
+    left: 14px;
+    box-shadow: 0 2px 0 rgba(255, 255, 255, 0.8);
+    -webkit-box-shadow: 0 2px 0 rgba(255, 255, 255, 0.8);
+    -moz-box-shadow: 0 2px 0 rgba(255, 255, 255, 0.8);
+}
+.smile.corner {
+    width: 2px;
+    height: 8px;
+    background: #222;
+    border-radius: 100px/160px;
+    -webkit-border-radius: 100px 160px;
+    -moz-border-radius: 100px/160px;
+    position: absolute;
+    top: -4px;
+    -webkit-transform: rotate(65deg);
+    -moz-transform: rotate(65deg);
+    -ms-transform: rotate(65deg);
+    -o-transform: rotate(65deg);
+    transform: rotate(65deg);
+    left: -2px;
+}
+.smile.corner.right {
+    left: 20px;
+    -webkit-transform: rotate(-65deg);
+    -moz-transform: rotate(-65deg);
+    -ms-transform: rotate(-65deg);
+    -o-transform: rotate(-65deg);
+    transform: rotate(-65deg);
+}
+.frown {
+    width: 20px;
+    height: 7px;
+    border: 2px solid #222;
+    border-bottom: 0;
+    background: rgba(0, 0, 0, 0);
+    -moz-border-radius: 120px 120px 0 0 / 90px 90px 0 0;
+    -webkit-border-radius: 120px 120px 0 0 90px 90px 0 0;
+    border-radius: 120px 120px 0 0 / 90px 90px 0 0;
+    position: absolute;
+    bottom: 12px;
+    left: 14px;
+}
+/* Numbers as 8 Bit Display */
+
+.digits {
+    margin: 0;
+    padding: 0;
+}
+.digits div {
+    text-align: left;
+    width: 28px;
+    height: 50px;
+    display: inline-block;
+    margin: 0 4px;
+    position: relative;
+    background-color: black;
+}
+.digits div span {
+    opacity: 0;
+    position: absolute;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+    background-color: #ff0000;
+}
+.digits .d1 {
+    height: 5px;
+    width: 16px;
+    top: 0;
+    left: 6px;
+}
+.digits .d1:before {
+    border-width: 0 5px 5px 0;
+    border-right-color: inherit;
+    left: -5px;
+}
+.digits .d1:after {
+    border-width: 0 0 5px 5px;
+    border-left-color: inherit;
+    right: -5px;
+}
+.digits .d2 {
+    height: 5px;
+    width: 16px;
+    top: 24px;
+    left: 6px;
+}
+.digits .d2:before {
+    border-width: 3px 4px 2px;
+    border-right-color: inherit;
+    left: -8px;
+}
+.digits .d2:after {
+    border-width: 3px 4px 2px;
+    border-left-color: inherit;
+    right: -8px;
+}
+.digits .d3 {
+    height: 5px;
+    width: 16px;
+    top: 48px;
+    left: 6px;
+}
+.digits .d3:before {
+    border-width: 5px 5px 0 0;
+    border-right-color: inherit;
+    left: -5px;
+}
+.digits .d3:after {
+    border-width: 5px 0 0 5px;
+    border-left-color: inherit;
+    right: -5px;
+}
+.digits .d4 {
+    width: 5px;
+    height: 14px;
+    top: 7px;
+    left: 0;
+}
+.digits .d4:before {
+    border-width: 0 5px 5px 0;
+    border-bottom-color: inherit;
+    top: -5px;
+}
+.digits .d4:after {
+    border-width: 0 0 5px 5px;
+    border-left-color: inherit;
+    bottom: -5px;
+}
+.digits .d5 {
+    width: 5px;
+    height: 14px;
+    top: 7px;
+    right: 0;
+}
+.digits .d5:before {
+    border-width: 0 0 5px 5px;
+    border-bottom-color: inherit;
+    top: -5px;
+}
+.digits .d5:after {
+    border-width: 5px 0 0 5px;
+    border-top-color: inherit;
+    bottom: -5px;
+}
+.digits .d6 {
+    width: 5px;
+    height: 14px;
+    top: 32px;
+    left: 0;
+}
+.digits .d6:before {
+    border-width: 0 5px 5px 0;
+    border-bottom-color: inherit;
+    top: -5px;
+}
+.digits .d6:after {
+    border-width: 0 0 5px 5px;
+    border-left-color: inherit;
+    bottom: -5px;
+}
+.digits .d7 {
+    width: 5px;
+    height: 14px;
+    top: 32px;
+    right: 0;
+}
+.digits .d7:before {
+    border-width: 0 0 5px 5px;
+    border-bottom-color: inherit;
+    top: -5px;
+}
+.digits .d7:after {
+    border-width: 5px 0 0 5px;
+    border-top-color: inherit;
+    bottom: -5px;
+}
+/* 1 */
+
+.digits div.one .d5,
+.digits div.one .d7 {
+    opacity: 1;
+}
+/* 2 */
+
+.digits div.two .d1,
+.digits div.two .d5,
+.digits div.two .d2,
+.digits div.two .d6,
+.digits div.two .d3 {
+    opacity: 1;
+}
+/* 3 */
+
+.digits div.three .d1,
+.digits div.three .d5,
+.digits div.three .d2,
+.digits div.three .d7,
+.digits div.three .d3 {
+    opacity: 1;
+}
+/* 4 */
+
+.digits div.four .d5,
+.digits div.four .d2,
+.digits div.four .d4,
+.digits div.four .d7 {
+    opacity: 1;
+}
+/* 5 */
+
+.digits div.five .d1,
+.digits div.five .d2,
+.digits div.five .d4,
+.digits div.five .d3,
+.digits div.five .d7 {
+    opacity: 1;
+}
+/* 6 */
+
+.digits div.six .d1,
+.digits div.six .d2,
+.digits div.six .d4,
+.digits div.six .d3,
+.digits div.six .d6,
+.digits div.six .d7 {
+    opacity: 1;
+}
+/* 7 */
+
+.digits div.seven .d1,
+.digits div.seven .d5,
+.digits div.seven .d7 {
+    opacity: 1;
+}
+/* 8 */
+
+.digits div.eight .d1,
+.digits div.eight .d2,
+.digits div.eight .d3,
+.digits div.eight .d4,
+.digits div.eight .d5,
+.digits div.eight .d6,
+.digits div.eight .d7 {
+    opacity: 1;
+}
+/* 9 */
+
+.digits div.nine .d1,
+.digits div.nine .d2,
+.digits div.nine .d3,
+.digits div.nine .d4,
+.digits div.nine .d5,
+.digits div.nine .d7 {
+    opacity: 1;
+}
+/* 0 */
+
+.digits div.zero .d1,
+.digits div.zero .d3,
+.digits div.zero .d4,
+.digits div.zero .d5,
+.digits div.zero .d6,
+.digits div.zero .d7 {
+    opacity: 1;
+}
+/* End Numbers as 8 Bit Display */
+
+.up {
+    background-color: silver;
+}
+.down {
+    background-color: white;
+}
+.flag {
+    background-color: pink;
+}
+.flag:after {
+    content: '\2691';
+}
+.question {
+    background-color: black;
+}
+.mine {
+    background-color: red;
+}

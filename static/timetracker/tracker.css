@@ -1,0 +1,9 @@
+h2, #input { text-align:center; }
+#timer { font-size:30px; color:chocolate; }
+#task, .task { width:200px; }
+#pasttasks { margin:0px auto; width:350px; }
+.btn { width:100px; }
+.green { background-color:green; }
+.red { background-color:red; }
+.right { float:right; }
+li { list-style:none; border-bottom:1px solid; padding:5px; }

@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>10 Porutham</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+	<script src="/porutham/porutham.js"></script>
+	<link rel="stylesheet" type="text/css" href="/porutham/porutham.css"/>
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css"/>
+    <style>
+        .jumbotron {
+            padding: 0.4em 0.5em;
+            margin-top: 70px;
+        }
+
+        .alert { margin-bottom : 0px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Anbarasan Gangadaran</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/blog">Blog</a></li>
+                    <li class="active"><a href="/projects">Projects</a></li>
+                    <li><a href="/resume">Resume</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div ng-app="10porutham" ng-controller="matchmaker" class="container container-fluid">
+        <div class="jumbotron" style="text-align:center;">
+            <h1>10 Porutham</h1>
+        </div>
+    
+        <div class="row">
+            <div class="col-xs-4">
+                <h2>Girl</h2>
+                <div class="form">
+                    <div class="form-group">
+                        <label for="girlsign" class="control-label">Rasi</label>
+                        <select id="girlsign" name="girlsign" data-ng-model="girlsign" data-ng-change="resetstar('girlstar')" class="form-control">
+                            <option>Select</option>
+                            <option data-ng-repeat="sign in signs">{{sign}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="girlstar" class="control-label">Star</label>
+                        <select id="girlstar" name="girlstar" data-ng-model="girlstar" class="form-control">
+                            <option>Select</option>
+                            <option data-ng-repeat="star in stars | starfilter : girlsign" 
+                            value="{{star.pos}}-{{star.name}}">
+                                {{star.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                &nbsp;
+            </div>
+            <div class="col-xs-4">
+                <h2>Boy</h2>
+                <div class="form">
+                    <div class="form-group">
+                        <label for="boysign" class="control-label">Rasi</label>
+                        <select id="boysign" name="boysign" data-ng-model="boysign" data-ng-change="resetstar('boystar')" class="form-control">
+                            <option>Select</option>
+                            <option data-ng-repeat="sign in signs">{{sign}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="boystar" class="control-label">Star</label>
+                        <select id="boystar" name="boystar" data-ng-model="boystar" class="form-control">
+                            <option>Select</option>
+                            <option data-ng-repeat="star in stars | starfilter : boysign" 
+                            value="{{star.pos}}-{{star.name}}">
+                                {{star.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="text-align:center;">
+            <input type="button" value="Check Porutham" data-ng-click="checkmatch()" class="btn btn-primary"/>
+        </div>
+        <hr/>
+        <div class="row" data-ng-if="result">
+            <div class="col-xs-3">&nbsp;</div>
+            <div class="col-xs-3">
+                <div class="row">
+                    <div class="col-xs-6 alert">
+                        Dhinam
+                    </div>
+                    <div class="col-xs-6 alert" data-ng-class="{'alert-danger' : result.dinam == 'adhamam', 
+                        'alert-success' : result.dinam == 'uttamam', 'alert-warning' : result.dinam == 'madhyamam'}">
+                        {{result.dinam}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 alert">
+                        Ganam
+                    </div>
+                    <div class="col-xs-6 alert" data-ng-class="{'alert-danger' : result.ganam == 'adhamam', 
+                        'alert-success' : result.ganam == 'uttamam', 'alert-warning' : result.ganam == 'madhyamam'}">
+                        {{result.ganam}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 alert">
+                        Mahendram
+                    </div>
+                    <div class="col-xs-6 alert" data-ng-class="{'alert-danger' : result.mahendram == 'adhamam', 
+                        'alert-success' : result.mahendram == 'uttamam', 'alert-warning' : result.mahendram == 'madhyamam'}">
+                        {{result.mahendram}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 alert">
+                        Stri Deergam
+                    </div>
+                    <div class="col-xs-6 alert" data-ng-class="{'alert-danger' : result.strideergam == 'adhamam', 
+                        'alert-success' : result.strideergam == 'uttamam', 'alert-warning' : result.strideergam == 'madhyamam'}">
+                        {{result.strideergam}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 alert">
+                        Yoni
+                    </div>
+                    <div class="col-xs-6 alert" data-ng-class="{'alert-danger' : result.yoni == 'adhamam', 
+                        'alert-success' : result.yoni == 'uttamam', 'alert-warning' : result.yoni == 'madhyamam'}">
+                        {{result.yoni}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="row">
+                    <div class="col-xs-6 alert">
+                        Raasi
+                    </div>
+                    <div class="col-xs-6 alert" data-ng-class="{'alert-danger' : result.raasi == 'adhamam', 
+                        'alert-success' : result.raasi == 'uttamam', 'alert-warning' : result.raasi == 'madhyamam'}">
+                        {{result.raasi}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 alert">
+                        Raasi Adhibadhi
+                    </div>
+                    <div class="col-xs-6 alert" data-ng-class="{'alert-danger' : result.raasiadhibadhi == 'adhamam', 
+                        'alert-success' : result.raasiadhibadhi == 'uttamam', 'alert-warning' : result.raasiadhibadhi == 'madhyamam'}">
+                        {{result.raasiadhibadhi}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 alert">
+                        Vasiyam
+                    </div>
+                    <div class="col-xs-6 alert" data-ng-class="{'alert-danger' : result.vasiyam == 'adhamam', 
+                        'alert-success' : result.vasiyam == 'uttamam', 'alert-warning' : result.vasiyam == 'madhyamam'}">
+                        {{result.vasiyam}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 alert">
+                        Rajju
+                    </div>
+                    <div class="col-xs-6 alert" data-ng-class="{'alert-danger' : result.rajju == 'adhamam', 
+                        'alert-success' : result.rajju == 'uttamam', 'alert-warning' : result.rajju == 'madhyamam'}">
+                        {{result.rajju}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 alert">
+                        Vedam
+                    </div>
+                    <div class="col-xs-6 alert" data-ng-class="{'alert-danger' : result.vedam == 'adhamam', 
+                        'alert-success' : result.vedam == 'uttamam', 'alert-warning' : result.vedam == 'madhyamam'}">
+                        {{result.vedam}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3">&nbsp;</div>
+        </div>
+    </div>
+</body>
+</html>

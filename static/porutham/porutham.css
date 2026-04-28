@@ -1,0 +1,58 @@
+h1, h2, h3, h4, h5, h6 { 
+    text-align:center; 
+}
+label , span { 
+    display:inline-block; 
+    width: 100px; 
+    padding-left:15px;
+}
+select { 
+    width:200px; 
+}
+ 
+ 
+.mainbox { 
+    margin:0px auto; 
+    width:400px; 
+}
+.input { 
+    width:400px; 
+    border:0px solid; 
+}
+.left { 
+    float:left; 
+}
+.right { 
+    float:right; 
+}
+.clear { 
+    clear:both; 
+}
+.textcenter { 
+    text-align:center; 
+}
+.resultcontainer{ 
+    margin:0px auto; 
+    width:300px; 
+    border:1px solid; 
+    border-radius: 5px; 
+    padding-top: 15px; 
+    padding-bottom:15px; 
+}
+.result { 
+    width:100px;
+}
+.category { 
+    padding-right:20px; 
+}
+
+
+.uttamam { 
+    background-color:green; 
+}
+.madhyamam { 
+    background-color:yellow; 
+}
+.adhamam { 
+    background-color:red; 
+}

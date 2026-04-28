@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Time Tracker</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+	<script src="/timetracker/tracker.js"></script>
+	<link rel="stylesheet" type="text/css" href="/timetracker/tracker.css"/>
+</head>
+<body ng-app="tasker" ng-controller="taskCtrlr">
+    <h2>Time Track</h2>
+    <form id="input" name="frmtask">
+        <input type="text" name="task" id="task" required="required"
+            ng-model="mytask" ng-maxlength="50" ng-minlength="5"/>
+        <div ng-disabled="frmtask.$invalid">
+            <input class="btn green" type="button" value="Start" ng-click="beginTask();"/>
+            <input class="btn red" type="button" value="Stop" ng-click="endTask();"/>
+        </div>
+        <div id="timer">{{timer}}</div>
+    </form>
+    <div id="pasttasks">
+        <ul>
+            <li ng-repeat="task in tasks.slice().reverse() track by $index">
+                {{task.task}}<span class="right">{{task.actual}}</span>
+            </li>
+        </ul>
+    </div>
+<body>
+</html>

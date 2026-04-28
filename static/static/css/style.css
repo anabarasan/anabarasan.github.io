@@ -1,0 +1,167 @@
+@font-face{
+    font-family:'Ubuntu';
+    src: url('/fonts/Ubuntu-R.ttf') format('truetype');
+}
+
+html {
+    height:100%;
+}
+
+body {
+    margin:0;
+    padding:0;
+    width:1200px;
+    height:100%;
+    line-height:160%;
+    font-family: 'Ubuntu', sans-serif;
+    color:#3A3A3A;
+}
+
+#container {
+    min-height:100%;
+    position:relative;
+}
+
+nav {
+    height:50px;
+    width:inherit;
+}
+
+a {
+    color:#999;
+    text-decoration:none;
+}
+
+a:hover {
+    color:#000;
+    text-decoration:underline;
+}
+
+.menu {
+    color:#999;
+    width:100px;
+    height:35px;
+    text-decoration:none;
+    padding-top:15px;
+    float:right;
+    border-bottom:1px dashed;
+    text-align:center;
+}
+
+.content_home {
+    height:490px;
+    width:1200px;
+    #display:table-row;
+    padding-top:10px;
+    padding-bottom:100px;
+}
+
+.content_portfolio {
+    height:100%;
+    width:1100px;
+    padding-top:10px;
+    padding-left:100px;
+    padding-bottom:100px;
+}
+
+.content_contact {
+    height:400px;
+    width:1200px;
+    display:inline-block;
+    padding-top:100px;
+    padding:10px;
+    padding-bottom:100px;
+}
+
+.content_post {
+    height:100%;
+    width:1000px;
+    padding-top:25px;
+    padding-left:100px;
+    padding-right:100px;
+    padding-bottom:100px;
+}
+
+#intro {
+    height:350px;
+    display:inline-block;
+    #border:1px solid;
+}
+
+#error_message {
+    height:400px;
+    width:100%;
+    text-align:center;
+    padding-top:200px;
+}
+
+#logo {
+    width:400px;
+    height:350px;
+    display: inline-block;
+    float:left;
+    #border:1px solid;
+}
+
+#info {
+    width:450px;
+    height:275px;
+    display: inline-block;
+    padding-top:75px;
+    #border:1px solid;
+}
+
+#contact, #associate {
+    padding-top:50px;
+    width:400px;
+    display:inline-block;
+    float:left;
+}
+
+.pads {
+    width:125px;
+    display:inline-block;
+    float:left;
+}
+
+h2 {
+    width:100%;
+}
+
+div {
+    #border:1px solid;
+}
+#project{
+    padding-bottom:50px;
+}
+
+#portfolio_teaser{
+    height:160px;
+    width:1000px;
+    #padding-top:25px;
+    padding-left:75px;
+    padding-right:75px;
+    display:inline-block;
+}
+
+#footer {
+    margin:auto;
+    position:absolute;
+    bottom:0;
+    width:1200px;
+    height:60px;
+    padding-top:10px;
+}
+
+#footer_content {
+    margin:auto;
+    background:#000;
+    height:40px;
+    width:1100px;
+    align:center;
+    color:#fff;
+    text-align:right;
+    padding-top:10px;
+    padding-left:30px;
+    padding-right:10px;
+}

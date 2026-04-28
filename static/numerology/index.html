@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Numerology</title>
+        <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css" />
+        <script>
+            name_numbers = { 
+                "A" : 1, "B" : 2, "C" : 3, "D" : 4, "E" : 5, "F" : 6, "G" : 7, "H" : 8, "I" : 9, 
+                "J" : 1, "K" : 2, "L" : 3, "M" : 4, "N" : 5, "O" : 6, "P" : 7, "Q" : 8, "R" : 9, 
+                "S" : 1, "T" : 2, "U" : 3, "V" : 4, "W" : 5, "X" : 6, "Y" : 7, "Z" : 8, 
+                "a" : 1, "b" : 2, "c" : 3, "d" : 4, "e" : 5, "f" : 6, "g" : 7, "h" : 8, "i" : 9, 
+                "j" : 1, "k" : 2, "l" : 3, "m" : 4, "n" : 5, "o" : 6, "p" : 7, "q" : 8, "r" : 9, 
+                "s" : 1, "t" : 2, "u" : 3, "v" : 4, "w" : 5, "x" : 6, "y" : 7, "z" : 8
+            }
+            
+            function calculate_name_number(name) {
+                var name_number = 0;
+                for (var i = 0; i < name.length; i++) {
+                    if (name[i] !== ' ') {
+                        name_number += name_numbers[name[i]];
+                    }
+                }
+                
+                return reduce(name_number);
+            }
+            
+            function reduce(num) {
+                if (num === 11 || num === 22 || num === 33) {
+                    return num;
+                }
+                var sum = 0;
+                while (num > 0) {
+                    sum += num % 10;
+                    num = Math.floor( num / 10 );
+                }
+                if (sum > 9) {
+                    return reduce(sum);
+                }
+                return sum;
+            }
+            
+            function calculate() {
+                var name = document.getElementById('name').value;
+                if (name.length > 0) {
+                    var number = calculate_name_number(name);
+                    document.getElementById('output').innerHTML = 'Numerology number is : ' + number;
+                } else {
+                    document.getElementById('output').innerHTML = 'name is empty';
+                }
+            }
+        </script>
+    </head>
+    <body class="container container-fluid">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">Anbarasan Gangadaran</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/blog">Blog</a></li>
+                        <li class="active"><a href="/projects">Projects</a></li>
+                        <li><a href="/resume">Resume</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="jumbotron" style="text-align:center; margin-top:70px;">
+            <h1>Numerology Calculator</h1>
+        </div>
+        <div class="row" style="margin-top:40px;">
+            <div class="col-xs-3">&nbsp;</div>
+            <div class="form col-xs-6">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" value="" class="form-control" placeholder="Name"/>
+                </div>
+                <div class="form-group" style="text-align:center;">
+                    <input type="submit" id="btnCalculate" value="Calculate" class="btn btn-primary"/>
+                </div>
+                <div style="text-align:center;">
+                    <h2 id="output"></h2>
+                </div>
+            </div>
+            <div class="col-xs-3">&nbsp;</div>
+        </div>
+    </body>
+    <script>
+        var btn = document.getElementById('btnCalculate');
+        btn.addEventListener('click', calculate);
+    </script>
+</html>

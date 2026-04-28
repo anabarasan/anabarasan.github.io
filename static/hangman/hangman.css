@@ -1,0 +1,37 @@
+#play, #clear {
+	display: none;
+	width: 140px;
+	padding: 0.25em 0;
+	text-align: center;
+	margin: 0.2em 0 0 13px;
+	font-size: 112.5%;
+	cursor: pointer;
+	color: #fff;
+	background-color: #069;
+}
+#score {
+	padding-top : 10px;
+	padding-bottom : 10px;
+}
+#word {
+	font-weight: bold;
+	font-size: 150%;
+	letter-spacing: 0.25em;
+	margin: 0.25em 0 0.4em 30px;
+}
+#letters div {
+	width: 40px;
+	margin: 0 5px 5px 0;
+	padding: 0.25em 0;
+	text-align: center;
+	font-weight: bold;
+	font-size: 150%;
+	color: #fff;
+	background-color: #006;
+	float: left;
+}        
+body {
+	max-width: 600px;
+	margin: 0px auto;
+	text-align: center;
+}
