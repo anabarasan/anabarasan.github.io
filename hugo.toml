@@ -7,6 +7,10 @@ theme = 'PaperMod'
 [params]
   env = 'production'
   author = 'Anbarasan'
+  disableHomePosts = true
+
+[params.profileMode]
+  enabled = false
 
 [[menu.main]]
   name = '~/projects'
