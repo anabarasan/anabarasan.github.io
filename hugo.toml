@@ -8,6 +8,9 @@ theme = 'PaperMod'
   env = 'production'
   author = 'Anbarasan'
   disableHomePosts = true
+  ShowReadingTime = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
 
 [params.profileMode]
   enabled = false
@@ -19,7 +22,7 @@ theme = 'PaperMod'
 
 [[menu.main]]
   name = '~/blog'
-  url = '/posts/'
+  url = '/blog/'
   weight = 2
 
 [[menu.main]]
