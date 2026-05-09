@@ -11,6 +11,8 @@ theme = 'PaperMod'
   ShowReadingTime = true
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
+  ShowPostNavLinks = true
+  ShowToc = true
 
 [params.profileMode]
   enabled = false

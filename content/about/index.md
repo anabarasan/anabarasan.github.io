@@ -2,6 +2,7 @@
 title = "About Me"
 date = 2026-04-26
 draft = false
+ShowToc = false
 +++
 # About Me
 
