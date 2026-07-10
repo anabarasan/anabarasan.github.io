@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>D&D Alignment Oracle</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+:root{
+    --yes:#2ecfa1;
+    --meh:#e8b339;
+    --no:#ff4d6d;
+    --glow:#8b6bff;
+    --ink:#e7e3ff;
+    --panel:#171233;
+    --panel-edge:#3a2f7a;
+}
+*{box-sizing:border-box}
+body{
+    font-family:'Trebuchet MS',system-ui,-apple-system,sans-serif;
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding:50px 16px;
+    color:var(--ink);
+    background:
+        radial-gradient(1px 1px at 10% 20%, #fff, transparent),
+        radial-gradient(1px 1px at 80% 10%, #fff, transparent),
+        radial-gradient(1px 1px at 60% 70%, #fff, transparent),
+        radial-gradient(1px 1px at 30% 85%, #fff, transparent),
+        radial-gradient(1px 1px at 90% 60%, #fff, transparent),
+        radial-gradient(1px 1px at 45% 35%, #fff, transparent),
+        radial-gradient(1px 1px at 15% 55%, #fff, transparent),
+        radial-gradient(circle at 50% 0%, #241d55 0%, #0c0821 55%, #050311 100%);
+    background-size:auto,auto,auto,auto,auto,auto,auto,cover;
+}
+
+.container{
+    position:relative;
+    width:100%;
+    max-width:700px;
+    background:
+        radial-gradient(circle at 15% 0%, rgba(139,107,255,.18), transparent 55%),
+        linear-gradient(180deg, var(--panel), #100c26);
+    border-radius:18px;
+    padding:44px;
+    border:1px solid var(--panel-edge);
+    box-shadow:
+        0 0 0 1px rgba(139,107,255,.15),
+        0 0 40px rgba(139,107,255,.25),
+        0 25px 60px rgba(0,0,0,.55);
+}
+
+.container::before,.container::after{
+    content:"✦";
+    position:absolute;
+    color:var(--glow);
+    font-size:1.1rem;
+    opacity:.8;
+    text-shadow:0 0 8px var(--glow);
+}
+.container::before{top:16px;left:20px}
+.container::after{top:16px;right:20px}
+
+h1{
+    text-align:center;
+    margin:0 0 4px;
+    font-size:1.7rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    background:linear-gradient(90deg,#8b6bff,#c9a7ff,#8b6bff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    text-shadow:0 0 18px rgba(139,107,255,.5);
+}
+
+.tagline{
+    text-align:center;
+    font-size:.85rem;
+    letter-spacing:.05em;
+    color:#9b8fd6;
+    margin-bottom:30px;
+}
+
+.rune-frame{
+    border:1px solid var(--panel-edge);
+    border-radius:16px;
+    padding:30px 24px;
+    margin:0 0 30px;
+    background:radial-gradient(circle at 50% 0%, rgba(139,107,255,.12), transparent 70%);
+}
+
+.question{
+    font-size:1.4rem;
+    font-weight:600;
+    text-align:center;
+    min-height:80px;
+    line-height:1.4;
+    color:#fdfcff;
+}
+
+.buttons{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:22px;
+}
+
+button.answer{
+    position:relative;
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    border:2px solid var(--c,var(--glow));
+    background:radial-gradient(circle at 35% 30%, rgba(255,255,255,.18), rgba(255,255,255,0) 60%), rgba(255,255,255,.03);
+    color:var(--c,var(--ink));
+    font-size:1.15rem;
+    font-weight:700;
+    letter-spacing:.03em;
+    cursor:pointer;
+    box-shadow:0 0 14px color-mix(in srgb, var(--c,var(--glow)) 55%, transparent), inset 0 0 12px rgba(255,255,255,.06);
+    transition:transform .15s, box-shadow .2s;
+}
+
+button.answer:hover{
+    transform:translateY(-4px) scale(1.05);
+    box-shadow:0 0 28px color-mix(in srgb, var(--c,var(--glow)) 75%, transparent), inset 0 0 16px rgba(255,255,255,.12);
+}
+
+button.answer.yes{--c:var(--yes)}
+button.answer.meh{--c:var(--meh)}
+button.answer.no{--c:var(--no)}
+
+#restart{
+    display:block;
+    margin:36px auto 0;
+    padding:12px 28px;
+    border:1px solid var(--panel-edge);
+    background:rgba(255,255,255,.03);
+    color:var(--ink);
+    cursor:pointer;
+    border-radius:999px;
+    font-size:.95rem;
+    letter-spacing:.05em;
+}
+
+#restart:hover{
+    border-color:var(--glow);
+    box-shadow:0 0 14px rgba(139,107,255,.4);
+}
+
+.result{
+    text-align:center;
+}
+
+.result h2{
+    margin:0 0 18px;
+    font-size:.95rem;
+    text-transform:uppercase;
+    letter-spacing:.2em;
+    color:#9b8fd6;
+}
+
+.sigil{
+    display:inline-block;
+    padding:20px 42px;
+    border-radius:50%/45%;
+    border:2px solid var(--c,var(--glow));
+    color:var(--c,var(--ink));
+    font-size:1.9rem;
+    font-weight:800;
+    letter-spacing:.02em;
+    box-shadow:0 0 30px color-mix(in srgb, var(--c,var(--glow)) 60%, transparent), inset 0 0 18px rgba(255,255,255,.06);
+}
+
+.description{
+    margin-top:26px;
+    font-size:1.05rem;
+    color:#cfc9f0;
+    line-height:1.6;
+    max-width:520px;
+    margin-left:auto;
+    margin-right:auto;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>D&amp;D Alignment Oracle</h1>
+<div class="tagline">Answer the runes truthfully. Your fate cannot be unwritten.</div>
+
+<div class="rune-frame">
+<div id="app"></div>
+</div>
+
+<button id="restart">↺ Cast Again</button>
+
+</div>
+
+<script>
+
+const descriptions={
+"Lawful Good":"Acts with compassion while respecting laws, traditions and duty.",
+"Neutral Good":"Does the most good possible without being bound by laws or chaos.",
+"Chaotic Good":"Follows their conscience and values freedom over authority.",
+"Lawful Neutral":"Believes order, law and structure are more important than morality.",
+"True Neutral":"Prefers balance or simply avoids taking strong moral positions.",
+"Chaotic Neutral":"Values personal freedom above all else and dislikes restrictions.",
+"Lawful Evil":"Uses laws, hierarchy and order for selfish gain.",
+"Neutral Evil":"Acts purely out of self-interest without loyalty to law or chaos.",
+"Chaotic Evil":"Rejects rules entirely and pursues selfish or destructive desires."
+};
+
+const tree={
+question:"Do you care about others?",
+answers:{
+"Yes":{
+question:"Are rules important to you?",
+answers:{
+"Yes":{result:"Lawful Good"},
+"No":{
+question:"Are rules a good guideline to follow?",
+answers:{
+"Yes":{result:"Neutral Good"},
+"No":{result:"Chaotic Good"}
+}
+}
+}
+},
+
+"Meh":{
+question:"Are rules important to you?",
+answers:{
+"Yes":{result:"Lawful Neutral"},
+"Meh":{
+question:"Are rules a good guideline to follow?",
+answers:{
+"Meh":{result:"True Neutral"},
+"No":{result:"Chaotic Neutral"}
+}
+}
+}
+},
+
+"No":{
+question:"Are rules important to you?",
+answers:{
+"Yes":{result:"Lawful Evil"},
+"No":{
+question:"Are rules a good guideline to follow?",
+answers:{
+"Yes":{result:"Neutral Evil"},
+"No":{result:"Chaotic Evil"}
+}
+}
+}
+}
+}
+};
+
+const app=document.getElementById("app");
+
+function sigilColor(result){
+    if(result.includes("Good"))return "var(--yes)";
+    if(result.includes("Evil"))return "var(--no)";
+    return "var(--meh)";
+}
+
+function render(node){
+
+    if(node.result){
+
+        app.innerHTML=`
+        <div class="result">
+            <h2>Your Alignment Is Revealed</h2>
+            <div class="sigil" style="--c:${sigilColor(node.result)}">${node.result}</div>
+            <div class="description">
+                ${descriptions[node.result]}
+            </div>
+        </div>
+        `;
+        return;
+    }
+
+    app.innerHTML=`<div class="question">${node.question}</div><div class="buttons"></div>`;
+
+    const buttons=app.querySelector(".buttons");
+
+    for(const answer in node.answers){
+        const btn=document.createElement("button");
+        btn.className="answer "+answer.toLowerCase();
+        btn.textContent=answer;
+        btn.onclick=()=>render(node.answers[answer]);
+        buttons.appendChild(btn);
+    }
+
+    window.current=node;
+}
+
+document.getElementById("restart").onclick=function(){
+    render(tree);
+}
+
+render(tree);
+
+</script>
+
+</body>
+</html>
