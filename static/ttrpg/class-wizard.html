@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>D&D Class Wizard</title>
+<style>
+:root{
+  --parchment:#e9dcb8;
+  --parchment-dark:#dcc99a;
+  --ink:#3a2a17;
+  --ink-soft:#5c4326;
+  --gold:#a9791f;
+  --gold-bright:#d4af37;
+  --wood:#241408;
+  --wood-deep:#150c05;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Georgia,'Times New Roman',serif;
+  color:var(--ink);
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding:40px 16px;
+  background:
+    radial-gradient(circle at 50% -10%, #4a2f14 0%, var(--wood) 45%, var(--wood-deep) 100%);
+}
+.card{
+  position:relative;
+  max-width:760px;
+  width:100%;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(255,255,255,.25), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(0,0,0,.08), transparent 45%),
+    repeating-linear-gradient(120deg, rgba(120,90,40,.05) 0 2px, transparent 2px 6px),
+    linear-gradient(160deg, var(--parchment) 0%, var(--parchment-dark) 100%);
+  border-radius:6px;
+  box-shadow:
+    0 0 0 2px var(--wood-deep),
+    0 0 0 6px var(--gold),
+    0 0 0 8px var(--wood-deep),
+    0 20px 50px rgba(0,0,0,.55);
+  padding:40px 44px;
+}
+.card::before{
+  content:"";
+  position:absolute;
+  inset:14px;
+  border:1px solid rgba(58,42,23,.35);
+  border-radius:2px;
+  pointer-events:none;
+}
+h1{
+  text-align:center;
+  margin:0 0 6px;
+  font-size:1.8rem;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--ink);
+  text-shadow:0 1px 0 rgba(255,255,255,.4);
+}
+.subtitle{
+  text-align:center;
+  font-style:italic;
+  color:var(--ink-soft);
+  margin-bottom:18px;
+  font-size:.95rem;
+}
+.divider{
+  text-align:center;
+  color:var(--gold);
+  letter-spacing:.4em;
+  margin:0 0 22px;
+  font-size:.9rem;
+}
+#progress{
+  text-align:center;
+  color:var(--ink-soft);
+  font-variant:small-caps;
+  letter-spacing:.08em;
+  margin-bottom:10px;
+}
+.caption{
+  text-align:center;
+  font-style:italic;
+  color:var(--ink-soft);
+  opacity:.85;
+  margin:0 0 14px;
+  font-size:.95rem;
+}
+#question{
+  font-size:1.5rem;
+  font-weight:700;
+  text-align:center;
+  min-height:70px;
+  line-height:1.4;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+.choice{
+  display:block;
+  width:100%;
+  margin:12px 0;
+  padding:15px 20px;
+  font-family:inherit;
+  font-size:1.05rem;
+  text-align:left;
+  color:var(--ink);
+  border:1px solid var(--gold);
+  border-radius:2px;
+  background:linear-gradient(180deg, rgba(255,255,255,.35), rgba(0,0,0,.03));
+  box-shadow:inset 0 0 0 1px rgba(58,42,23,.15);
+  cursor:pointer;
+  transition:background .15s, box-shadow .15s, transform .1s;
+}
+.choice:hover{
+  background:linear-gradient(180deg, rgba(212,175,55,.35), rgba(212,175,55,.12));
+  box-shadow:inset 0 0 0 1px var(--gold), 0 0 12px rgba(212,175,55,.5);
+  transform:translateY(-1px);
+}
+.choice:active{transform:translateY(0)}
+#restart{
+  display:block;
+  margin:28px auto 0;
+  padding:12px 26px;
+  font-family:inherit;
+  font-variant:small-caps;
+  letter-spacing:.08em;
+  font-size:1rem;
+  color:var(--parchment);
+  background:linear-gradient(180deg,#5a3d1c,var(--wood));
+  border:1px solid var(--gold);
+  border-radius:3px;
+  cursor:pointer;
+  box-shadow:0 3px 8px rgba(0,0,0,.4);
+}
+#restart:hover{box-shadow:0 3px 12px rgba(212,175,55,.5)}
+.result{border-top:1px dashed var(--gold);margin-top:8px;padding-top:22px;text-align:center}
+.seal{
+  display:inline-block;
+  margin:0 auto 18px;
+  padding:16px 34px;
+  border-radius:50%/40%;
+  border:3px double var(--gold);
+  color:var(--ink);
+  font-size:1.7rem;
+  font-weight:bold;
+  letter-spacing:.02em;
+  box-shadow:0 0 0 4px rgba(0,0,0,.05) inset, 0 2px 6px rgba(0,0,0,.2);
+}
+.result p.flavor{font-style:italic;color:var(--ink-soft);max-width:520px;margin:0 auto 18px}
+.result h3{
+  font-variant:small-caps;
+  letter-spacing:.08em;
+  color:var(--ink-soft);
+  border-bottom:1px solid var(--gold);
+  display:inline-block;
+  padding-bottom:2px;
+  margin:22px 0 10px;
+}
+.result ul{list-style:none;padding:0;margin:0 auto;max-width:420px;text-align:left}
+.result ul li{padding:6px 0 6px 22px;position:relative;border-bottom:1px dotted rgba(58,42,23,.25)}
+.result ul li:last-child{border-bottom:none}
+.result ul li::before{content:"❖";position:absolute;left:0;color:var(--gold)}
+</style></head><body><div class="card">
+<h1>Which D&amp;D Class Should You Play?</h1>
+<div class="subtitle">A rite of divination to reveal thy true calling</div>
+<div class="divider">⚜ ─────── ⚜</div>
+<div id="progress"></div>
+<div id="app"></div>
+<button id="restart">⟲ Begin Anew</button>
+</div>
+<script>
+const info={
+"Cleric":["⛪","A devout servant who channels divine power to heal, protect and smite in the name of their god.",["Devout","Healing","Divine"]],
+"Warlock":["👁️","A wielder of dark and wondrous magic granted through a pact with a powerful otherworldly patron.",["Bound","Mysterious","Otherworldly"]],
+"Sorcerer":["✨","A spellcaster whose magic is innate, wild and born in the blood rather than learned from books.",["Innate","Wild magic","Charismatic"]],
+"Bard":["🎻","A charismatic performer who weaves magic through music, wit and inspiration.",["Charming","Versatile","Inspiring"]],
+"Wizard":["📖","A scholar of the arcane who masters spells through rigorous study and careful preparation.",["Studious","Methodical","Arcane"]],
+"Druid":["🌿","A guardian of the wild who draws power from nature and the primal forces of the world.",["Wild","Shapeshifting","Nature-bound"]],
+"Ranger":["🏹","A skilled hunter and tracker equally at home in the wilderness and in a fight.",["Watchful","Resourceful","Wilderness-wise"]],
+"Rogue":["🗡️","A cunning, stealthy operator who relies on skill, subterfuge and precision strikes.",["Stealthy","Cunning","Precise"]],
+"Paladin":["☀️","A holy warrior bound by a sacred oath, combining martial might with divine power.",["Devout","Righteous","Unyielding"]],
+"Monk":["☯️","A disciplined martial artist who channels inner energy into devastating unarmed combat.",["Disciplined","Swift","Focused"]],
+"Fighter":["🛡️","A master of martial combat, skilled with a wide variety of weapons and armor.",["Versatile","Battle-hardened","Reliable"]],
+"Barbarian":["🪓","A fierce warrior who channels primal rage into unstoppable fury on the battlefield.",["Fierce","Relentless","Primal"]]
+};
+
+const WEALTHY={q:"Do you want to be wealthy?",a:{
+"💰 Is that a question?":{r:"Rogue"},
+"😐 Meh.":{r:"Monk"}
+}};
+const SPELLS_MELEE={q:"Do you prefer spells over melee?",a:{
+"⚔️ Melee is for losers.":{r:"Bard"},
+"🔮 No, spells are just a bonus.":WEALTHY
+}};
+const SNEAKY={q:"Are you sneaky?",a:{
+"🙂 Not so much.":SPELLS_MELEE,
+"🌙 I am the night!":{caption:"Batman is not a class.",r:"Rogue"}
+}};
+const ANIMALS_1={q:"Do you like animals?",a:{
+"🐇 They're so FLUFFY!":{caption:"Except, ya know... when they're not.",r:"Druid"},
+"🐕 Eh, they're okay.":SNEAKY
+}};
+const GOOD_WITH_PEOPLE_1={q:"Are you good with people?",caption:"Sure!",a:{
+"😊 Yes! People usually like me.":SNEAKY,
+"😬 No, not really.":ANIMALS_1
+}};
+const ANIMALS_2={q:"Do you like animals?",a:{
+"✨ I prefer magic creatures.":{r:"Wizard"},
+"🐾 I actually prefer animals to people.":{r:"Druid"}
+}};
+const MUSICAL={q:"Are you musically inclined?",a:{
+"🎭 Not really.":ANIMALS_2,
+"🎵 Yes! I write poetry too.":{caption:"Oh, great...",r:"Bard"}
+}};
+const BORN_MAGIC={q:"Were you born with magic?",a:{
+"🤷 Not exactly.":{r:"Warlock"},
+"🩸 Yes, it's in my blood!":{r:"Sorcerer"}
+}};
+const STUDY={q:"Do you like to study?",a:{
+"📚 No. Studying is for losers.":BORN_MAGIC,
+"🤓 Yes, I love learning!":MUSICAL
+}};
+const RELIGIOUS={q:"Are you religious?",a:{
+"🙏 Would you like to hear about my god?":{caption:"Maybe later...",r:"Cleric"},
+"😅 No, no really.":STUDY
+}};
+const GOOD_WITH_PEOPLE_2={q:"So, are you good with people?",a:{
+"😊 Yes! People usually like me.":SNEAKY,
+"🐾 No, I prefer animals.":{r:"Ranger"}
+}};
+const RELIEF={caption:"“I mean, I don't eat people or anything...” — “Well, that's a relief...”",r:"Fighter"};
+const MARTIAL_ARTS={q:"Do you know martial arts?",a:{
+"🙅 Nope.":{r:"Paladin"},
+"👊 My fists hunger for justice!":RELIEF
+}};
+const CIVILIZED={q:"Are you civilized?",a:{
+"🙂 I mean, I don't eat people or anything...":RELIEF,
+"🌲 No, I was raised in the wilds.":{r:"Barbarian"}
+}};
+const FIGHT_FOR_CAUSE={q:"Do you fight for a cause?",a:{
+"⚖️ Yes, my beliefs define me.":MARTIAL_ARTS,
+"💵 Is money a cause?":CIVILIZED
+}};
+const MELEE_OR_RANGED={q:"Melee or ranged?",a:{
+"🏹 Ranged":GOOD_WITH_PEOPLE_2,
+"🗡️ Melee":FIGHT_FOR_CAUSE
+}};
+const tree={q:"Do you want to cast magic, or smash things?",a:{
+"🔮 Cast Magic!":RELIGIOUS,
+"🤔 Can't I do both?":GOOD_WITH_PEOPLE_1,
+"💥 Me Smash!":MELEE_OR_RANGED
+}};
+
+const app=document.getElementById("app");
+const progress=document.getElementById("progress");
+let step=0;
+
+function render(n){
+if(n.r){
+let d=info[n.r];
+app.innerHTML=`<div class=result>
+${n.caption?`<p class=caption>${n.caption}</p>`:""}
+<div class=seal>${d[0]} ${n.r}</div>
+<p class=flavor>${d[1]}</p>
+<h3>Typical Traits</h3>
+<ul>${d[2].map(x=>`<li>${x}</li>`).join("")}</ul>
+</div>`;
+progress.textContent="The scroll is complete";
+return;
+}
+step++;
+progress.textContent=`Chapter ${step}`;
+app.innerHTML=`${n.caption?`<p class=caption>${n.caption}</p>`:""}<div id=question>${n.q}</div>`;
+for(let k in n.a){
+let btn=document.createElement("button");
+btn.className="choice";
+btn.textContent=k;
+btn.onclick=()=>render(n.a[k]);
+app.appendChild(btn);
+}
+}
+restart.onclick=()=>{step=0;render(tree);};
+render(tree);
+</script></body></html>
