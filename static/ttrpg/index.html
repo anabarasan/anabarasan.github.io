@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>D&D Wizards</title>
+<style>
+:root{
+  --parchment:#e9dcb8;
+  --parchment-dark:#dcc99a;
+  --ink:#3a2a17;
+  --ink-soft:#5c4326;
+  --gold:#a9791f;
+  --gold-bright:#d4af37;
+  --wood:#241408;
+  --wood-deep:#150c05;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Georgia,'Times New Roman',serif;
+  color:var(--ink);
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding:40px 16px;
+  background:
+    radial-gradient(circle at 50% -10%, #4a2f14 0%, var(--wood) 45%, var(--wood-deep) 100%);
+}
+.card{
+  position:relative;
+  max-width:760px;
+  width:100%;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(255,255,255,.25), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(0,0,0,.08), transparent 45%),
+    repeating-linear-gradient(120deg, rgba(120,90,40,.05) 0 2px, transparent 2px 6px),
+    linear-gradient(160deg, var(--parchment) 0%, var(--parchment-dark) 100%);
+  border-radius:6px;
+  box-shadow:
+    0 0 0 2px var(--wood-deep),
+    0 0 0 6px var(--gold),
+    0 0 0 8px var(--wood-deep),
+    0 20px 50px rgba(0,0,0,.55);
+  padding:40px 44px;
+}
+.card::before{
+  content:"";
+  position:absolute;
+  inset:14px;
+  border:1px solid rgba(58,42,23,.35);
+  border-radius:2px;
+  pointer-events:none;
+}
+h1{
+  text-align:center;
+  margin:0 0 6px;
+  font-size:1.9rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--ink);
+  text-shadow:0 1px 0 rgba(255,255,255,.4);
+}
+.subtitle{
+  text-align:center;
+  font-style:italic;
+  color:var(--ink-soft);
+  margin-bottom:18px;
+  font-size:.95rem;
+}
+.divider{
+  text-align:center;
+  color:var(--gold);
+  letter-spacing:.4em;
+  margin:0 0 30px;
+  font-size:.9rem;
+}
+.wizard-list{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+.wizard-link{
+  display:block;
+  padding:22px 26px;
+  font-family:inherit;
+  color:var(--ink);
+  text-decoration:none;
+  border:1px solid var(--gold);
+  border-radius:2px;
+  background:linear-gradient(180deg, rgba(255,255,255,.35), rgba(0,0,0,.03));
+  box-shadow:inset 0 0 0 1px rgba(58,42,23,.15);
+  transition:background .15s, box-shadow .15s, transform .1s;
+}
+.wizard-link:hover{
+  background:linear-gradient(180deg, rgba(212,175,55,.35), rgba(212,175,55,.12));
+  box-shadow:inset 0 0 0 1px var(--gold), 0 0 12px rgba(212,175,55,.5);
+  transform:translateY(-1px);
+}
+.wizard-link:active{transform:translateY(0)}
+.wizard-title{
+  font-size:1.3rem;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:6px;
+}
+.wizard-icon{font-size:1.5rem}
+.wizard-desc{
+  font-style:italic;
+  color:var(--ink-soft);
+  font-size:.95rem;
+}
+.footer-note{
+  text-align:center;
+  color:var(--ink-soft);
+  font-style:italic;
+  font-size:.85rem;
+  margin-top:30px;
+  opacity:.8;
+}
+</style></head><body><div class="card">
+<h1>Rites of Divination</h1>
+<div class="subtitle">Choose a scroll to unroll thy fate</div>
+<div class="divider">⚜ ─────── ⚜</div>
+<div class="wizard-list">
+  <a class="wizard-link" href="alignment.html">
+    <div class="wizard-title"><span class="wizard-icon">⚖️</span> D&amp;D Alignment Wizard</div>
+    <div class="wizard-desc">A rite of divination to reveal thy moral compass</div>
+  </a>
+  <a class="wizard-link" href="class.html">
+    <div class="wizard-title"><span class="wizard-icon">🗡️</span> D&amp;D Class Wizard</div>
+    <div class="wizard-desc">A rite of divination to reveal thy true calling</div>
+  </a>
+</div>
+<div class="footer-note">⚜ May the dice favor thee ⚜</div>
+</div>
+</body></html>
