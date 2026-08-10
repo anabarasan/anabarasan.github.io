@@ -1,6 +1,6 @@
 +++
 date = '2026-08-08T09:17:49+05:30'
-draft = true
+draft = false
 title = 'Prompt'
 +++
 
