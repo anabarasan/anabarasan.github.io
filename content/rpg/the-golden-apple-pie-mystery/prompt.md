@@ -7,7 +7,7 @@ title = 'Prompt'
 The prompt to used to generate the adventure.
 
 ```
-# Prompt: The Missing Pie
+# Prompt: The Golden Apple Pie Mystery
 
 You are an experienced Dungeons & Dragons adventure designer who specializes in beginner-friendly, fast-paced one-shots.
 

@@ -2,11 +2,11 @@
 date = '2026-08-08T08:54:25+05:30'
 draft = false
 showtoc = false
-title = 'The Missing Pie - Session 01'
+title = 'The Golden Apple Pie Mystery - Session 01'
 +++
 
 
-# The Missing Pie
+# The Golden Apple Pie Mystery
 
 ## Session Summary
 

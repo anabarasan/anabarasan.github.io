@@ -2,7 +2,7 @@
 date = '2026-08-06T22:49:20+05:30'
 draft = false
 ShowToc = false
-title = 'The Missing Pie - Pregenerated Characters'
+title = 'The Golden Apple Pie Mystery - Pregenerated Characters'
 +++
 
 # Player Characters
