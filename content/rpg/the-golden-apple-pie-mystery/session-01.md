@@ -2,15 +2,10 @@
 date = '2026-08-08T08:54:25+05:30'
 draft = false
 showtoc = false
-title = 'The Golden Apple Pie Mystery - Session 01'
+title = 'Session 01'
 +++
 
-
-# The Golden Apple Pie Mystery
-
-## Session Summary
-
-### The Golden Apple Pie Mystery
+# Session Summary
 
 The annual Pie Festival was about to begin in the cheerful town of Brambleton when disaster struck.
 
