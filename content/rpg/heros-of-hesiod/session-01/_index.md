@@ -14,11 +14,11 @@ The Mayor also introduced them to Dornak, a Dragonborn Paladin and an in-experie
 The next day, the team travelled to Hesiod and joined the academy. Loomis began teaching them the basics of monster combat. After a week of training, the adventurers faced their final examination: fighting few monster in the academy's exam field.
 
 ## The Team
-* Mohini — Bard
-* Gimli — Cleric
-* Kora Steelheart — Cleric
-* Kragan "Mountain-Breaker" Ogolakanu — Barbarian
-* Dornak — Paladin
+* [Mohini]({{< ref "/rpg/characters/mohini" >}}) — Bard
+* [Gimli]({{< ref "/rpg/characters/gimli" >}}) — Cleric
+* [Kora Steelheart]({{< ref "/rpg/characters/kora-steelheart" >}}) — Cleric
+* [Kragan "Mountain-Breaker" Ogolakanu]({{< ref "/rpg/characters/kragan-ogolakanu" >}}) — Barbarian
+* [Dornak]({{< ref "/rpg/characters/dornak" >}}) — Paladin
 
 ## The Exam Battle
 

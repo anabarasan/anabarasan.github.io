@@ -1,0 +1,21 @@
+{{ $image := .Page.Resources.GetMatch (.Get "src") }}
+{{ $width := .Get "width" | default "150" }}
+{{ $align := .Get "align" | default "center" }}
+
+{{ $justify := "flex-start" }}
+
+{{ if eq $align "center" }}
+  {{ $justify = "center" }}
+{{ else if eq $align "right" }}
+  {{ $justify = "flex-end" }}
+{{ end }}
+
+{{ with $image }}
+  {{ $resized := .Resize (printf "%sx%s" $width $width) }}
+  <div style="display: flex; justify-content: {{ $justify }};">
+  <img src="{{ $resized.RelPermalink }}"
+       alt="{{ $.Get "alt" }}"
+       width="{{ $width }}"
+       height="{{ $width }}">
+  </div>
+{{ end }}
