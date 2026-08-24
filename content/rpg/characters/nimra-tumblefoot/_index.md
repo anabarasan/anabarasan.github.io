@@ -16,9 +16,5 @@ title = 'Nimra Tumblefoot'
 - Quarterstaff
 - Darts
 
-**Spells**
-- Healing Word
-- Dissonant Whispers
-
 **Special Ability**
 - *Lightning Reflexes* - When an enemy misses you with a melee attack, you can immediately make an attack against that enemy.
