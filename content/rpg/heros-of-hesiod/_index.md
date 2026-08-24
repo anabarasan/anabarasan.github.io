@@ -38,11 +38,12 @@ The heroes returned the pie, saved the festival, and received **250 gold pieces 
 ---
 
 ### Members
- - Mohini (Human Bard)
- - Kora Steelheart (Dwarf Cleric)
- - Kragan "Mountain-Breaker" Ogolakanu (Goliath Barbarian)
- - Gimli (Dwarf Cleric)
- - Dornak (Dragonborn Paladdin)
+ - [Mohini]({{< ref "/rpg/characters/mohini" >}}) (Human Bard)
+ - [Kora Steelheart]({{< ref "/rpg/characters/kora-steelheart" >}}) (Dwarf Cleric)
+ - [Kragan "Mountain-Breaker" Ogolakanu]({{< ref "/rpg/characters/kragan-ogolakanu" >}}) (Goliath Barbarian)
+ - [Gimli]({{< ref "/rpg/characters/gimli" >}}) (Dwarf Cleric)
+ - [Dornak]({{< ref "/rpg/characters/dornak" >}}) (Dragonborn Paladdin)
+ - [Nimra Tumblefoot]({{< ref "/rpg/characters/nimra-tumblefoot" >}}) (Gnome Monk)
 
 ---
 
@@ -55,10 +56,12 @@ The heroes returned the pie, saved the festival, and received **250 gold pieces 
 ### Monsters
 - Bullette (AC-15 | HP-8)
 - Pixie Swarm (AC-10 | HP-11)
+- Red Dragon (AC-14 | HP-10)
 
 ---
 
 ## Sessions
 - [Session 1]({{< ref "session-01" >}})
+- [Session 2]({{< ref "session-02" >}})
 
 ---
