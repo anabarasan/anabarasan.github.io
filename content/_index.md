@@ -11,7 +11,7 @@ I’ve been working in software and infrastructure for close to two decades, acr
 Most of my work revolves around:
 
 * Building and running applications on **Kubernetes**
-* Designing and operating **stateful systems**, especially with MariaDB and replication setups
+* Designing and operating **stateful systems**
 * Writing backend services and APIs
 * Understanding how systems behave in production-failures, restarts, scaling, and recovery
 
